@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wendymolinares.github.io/andy-rochmol-symphony-no-1-in-c-minor/sitemap.xml
