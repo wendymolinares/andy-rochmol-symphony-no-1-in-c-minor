@@ -2,9 +2,7 @@
 
     :root {
       --gold: #C9A84C;
-      --gold-light: #E8C97A;
       --dark: #0d0b09;
-      --dark2: #141008;
       --text: #e8e0d2;
       --muted: #9a8f7e;
     }
@@ -18,18 +16,22 @@
       font-weight: 300;
       min-height: 100vh;
       overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
     }
 
-    /* ── HERO ── */
     .hero {
       position: relative;
       width: 100%;
-      min-height: 100svh;
+      height: 50vh;
+      min-height: 280px;
+      max-height: 420px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-end;
-      padding-bottom: 3.5rem;
+      padding-bottom: 2rem;
       overflow: hidden;
     }
 
@@ -39,8 +41,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
-      filter: brightness(0.55) saturate(0.7);
+      object-position: center 60%;
+      filter: brightness(0.45) saturate(0.7);
     }
 
     .hero-overlay {
@@ -49,8 +51,8 @@
       background: linear-gradient(
         to bottom,
         rgba(13,11,9,0.05) 0%,
-        rgba(13,11,9,0.1) 40%,
-        rgba(13,11,9,0.75) 75%,
+        rgba(13,11,9,0.2) 50%,
+        rgba(13,11,9,0.9) 80%,
         rgba(13,11,9,1) 100%
       );
     }
@@ -65,7 +67,7 @@
 
     .artist-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.4rem, 9vw, 5.5rem);
+      font-size: clamp(2.4rem, 9vw, 5rem);
       font-weight: 300;
       letter-spacing: 0.18em;
       color: var(--gold);
@@ -74,110 +76,89 @@
     }
 
     .divider-line {
-      width: 60px;
+      width: 50px;
       height: 1px;
       background: var(--gold);
-      margin: 1rem auto;
+      margin: 0.7rem auto;
       opacity: 0.6;
     }
 
     .work-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1rem, 3.5vw, 1.7rem);
+      font-size: clamp(0.95rem, 3.2vw, 1.5rem);
       font-weight: 300;
       font-style: italic;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       color: var(--text);
       opacity: 0.9;
     }
 
     .movement {
-      font-family: 'Raleway', sans-serif;
-      font-size: clamp(0.72rem, 2.2vw, 0.95rem);
+      font-size: clamp(0.65rem, 2vw, 0.85rem);
       font-weight: 400;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-top: 0.4rem;
+      margin-top: 0.3rem;
     }
 
-    /* ── LISTEN SECTION ── */
     .listen {
-      position: relative;
-      z-index: 2;
-      padding: 3rem 1.5rem 4rem;
-      max-width: 480px;
+      padding: 1.8rem 1.5rem 3rem;
+      max-width: 440px;
       margin: 0 auto;
       text-align: center;
-      animation: fadeUp 1.4s ease 0.2s both;
+      animation: fadeUp 1.4s ease 0.15s both;
+      width: 100%;
     }
 
     .listen-label {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.2rem;
     }
 
     .platforms {
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
+      gap: 0.75rem;
     }
 
     .btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.75rem;
-      padding: 0.9rem 1.5rem;
+      gap: 0.7rem;
+      padding: 0.85rem 1.5rem;
       border-radius: 3px;
       text-decoration: none;
       font-family: 'Raleway', sans-serif;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease, opacity 0.2s ease;
       cursor: pointer;
     }
 
     .btn:active { transform: scale(0.97); }
+    .btn-spotify { background: #1DB954; color: #fff; }
+    .btn-youtube { background: #FF0000; color: #fff; }
+    .btn:hover { opacity: 0.88; }
+    .btn svg { width: 19px; height: 19px; flex-shrink: 0; }
 
-    .btn-spotify {
-      background: #1DB954;
-      color: #fff;
-    }
-
-    .btn-youtube {
-      background: #FF0000;
-      color: #fff;
-    }
-
-    .btn:hover {
-      opacity: 0.88;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
-    }
-
-    .btn svg {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-    }
-
-    /* ── FOOTER ── */
     footer {
       text-align: center;
-      padding: 2rem 1rem 3rem;
-      font-size: 0.7rem;
+      padding: 1rem 1rem 2rem;
+      font-size: 0.65rem;
       letter-spacing: 0.15em;
       color: var(--muted);
-      opacity: 0.6;
+      opacity: 0.4;
       text-transform: uppercase;
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
+      from { opacity: 0; transform: translateY(16px); }
       to   { opacity: 1; transform: translateY(0); }
     }
